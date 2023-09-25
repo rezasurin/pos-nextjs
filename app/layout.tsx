@@ -1,5 +1,9 @@
-import './globals.css'
+
+import '@/styles/globals.scss'
 import { Inter } from 'next/font/google'
+
+import SideNav from "@/components/SideNav"
+import Header from '@/components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +19,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className + " "}>
+        <Header />
+        <main>
+          <SideNav />
+          <div className='lg:pl-72 pt-16'>
+            <div className='mx-auto'>
+              {children}
+            </div>
+          </div>
+
+        </main>
+      </body>
     </html>
   )
 }
